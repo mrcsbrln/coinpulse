@@ -3,7 +3,7 @@ import { TrendingDown, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import DataTable from "../DataTable";
-import { cn } from "@/lib/utils";
+import { cn, formatCurrency } from "@/lib/utils";
 
 const TrendingCoins = async () => {
   const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
@@ -54,7 +54,7 @@ const TrendingCoins = async () => {
     {
       header: "Price",
       cellClassName: "price-cell",
-      cell: (coin) => coin.item.data.price,
+      cell: (coin) => formatCurrency(coin.item.data.price),
     },
   ];
 
@@ -68,6 +68,7 @@ const TrendingCoins = async () => {
           rowKey={(coin) => coin.item.id}
           tableClassName="trending-coins-table"
           headerCellClassName="py-3!"
+          bodyCellClassName="py-2!"
         />
       </div>
     </div>
