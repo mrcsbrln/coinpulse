@@ -5,9 +5,6 @@ import { CoinOverviewFallback } from "./Fallback";
 import CandlestickChart from "../CandlestickChart";
 
 const CoinOverview = async () => {
-  let coin;
-  let coinOHLCData;
-
   try {
     const [coin, coinOHLCData] = await Promise.all([
       await fetcher<CoinDetailsData>("coins/bitcoin", {
