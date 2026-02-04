@@ -32,15 +32,18 @@ const CandlestickChart = ({
 
   const fetchOhlcData = async (selectedPeriod: Period) => {
     try {
-      const { days, interval } = PERIOD_CONFIG[selectedPeriod];
+      const { days } = PERIOD_CONFIG[selectedPeriod];
 
       const newData = await fetcher<OHLCData[]>(`/coins/${coinId}/ohlc`, {
         vs_currency: "usd",
         days: days,
-        interval: interval,
         precision: "full",
       });
-    } catch (error) {}
+
+      setOhlcData(newData);
+    } catch (error) {
+      console.error("Failed to fetch OHLC data:", error);
+    }
   };
 
   const handlePeriodChange = (newPeriod: Period) => {
