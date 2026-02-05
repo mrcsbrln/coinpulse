@@ -1,3 +1,4 @@
+import Categories from "@/components/home/Categories";
 import CoinOverview from "@/components/home/CoinOverview";
 import {
   CoinOverviewFallback,
@@ -18,7 +19,9 @@ const Page = async () => {
         </Suspense>
       </section>
       <section className="w-full mt-7 space-y-4">
-        <p>Categories</p>
+        <Suspense fallback={<CoinOverviewFallback />}>
+          <Categories />
+        </Suspense>
       </section>
     </main>
   );
