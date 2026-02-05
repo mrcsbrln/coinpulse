@@ -17,6 +17,62 @@ export function formatCurrency(
   }).format(value);
 }
 
+export function formatPercentage(change: number | null | undefined): string {
+  if (change === null || change === undefined || isNaN(change)) {
+    return "0.0%";
+  }
+  const formattedChange = change.toFixed(1);
+  return `${formattedChange}%`;
+}
+
+export function trendingClasses(value: number) {
+  const isTrendingUp = value > 0;
+
+  return {
+    textClass: isTrendingUp ? "text-green-400" : "text-red-400",
+    bgClass: isTrendingUp ? "bg-green-500/10" : "bg-red-500/10",
+    iconClass: isTrendingUp ? "icon-up" : "icon-down",
+  };
+}
+
+export const ELLIPSIS = "ellipsis" as const;
+export const buildPageNumbers = (
+  currentPage: number,
+  totalPages: number,
+): (number | typeof ELLIPSIS)[] => {
+  const MAX_VISIBLE_PAGES = 5;
+
+  const pages: (number | typeof ELLIPSIS)[] = [];
+
+  if (totalPages <= MAX_VISIBLE_PAGES) {
+    for (let i = 1; i <= totalPages; i += 1) {
+      pages.push(i);
+    }
+    return pages;
+  }
+
+  pages.push(1);
+
+  const start = Math.max(2, currentPage - 1);
+  const end = Math.min(totalPages - 1, currentPage + 1);
+
+  if (start > 2) {
+    pages.push(ELLIPSIS);
+  }
+
+  for (let i = start; i <= end; i += 1) {
+    pages.push(i);
+  }
+
+  if (end < totalPages - 1) {
+    pages.push(ELLIPSIS);
+  }
+
+  pages.push(totalPages);
+
+  return pages;
+};
+
 export function convertOHLCData(data: OHLCData[]) {
   return data
     .map((d) => ({
