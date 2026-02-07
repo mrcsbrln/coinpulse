@@ -229,9 +229,8 @@ interface CoinDetailsData {
   tickers: Ticker[];
 }
 
-interface LiveDataProps {
+interface CoinDetailsDataProps {
   coinId: string;
-  poolId: string;
   coin: CoinDetailsData;
   coinOHLCData?: OHLCData[];
   children?: React.ReactNode;

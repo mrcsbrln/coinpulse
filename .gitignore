@@ -42,3 +42,9 @@ next-env.d.ts
 
 # vs code
 .vscode/
+
+#CLAUDE
+CLAUDE.md
+
+# MCP Server Configuration
+.playwright-mcp

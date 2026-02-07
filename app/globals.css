@@ -877,7 +877,7 @@
     }
   }
 
-  #live-data-wrapper {
+  #coin-data-wrapper {
     @apply size-full xl:col-span-2;
 
     .divider {
