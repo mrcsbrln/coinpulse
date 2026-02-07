@@ -254,19 +254,6 @@ interface Category {
   volume_24h: number;
 }
 
-interface UseCoinGeckoWebSocketProps {
-  coinId: string;
-  poolId: string;
-  liveInterval?: "1s" | "1m";
-}
-
-interface UseCoinGeckoWebSocketReturn {
-  price: ExtendedPriceData | null;
-  trades: Trade[];
-  ohlcv: OHLCData | null;
-  isConnected: boolean;
-}
-
 interface DataTableColumn<T> {
   header: React.ReactNode;
   cell: (row: T, index: number) => React.ReactNode;
