@@ -58,7 +58,7 @@ const Page = async ({ params }: NextPageProps) => {
   ];
 
   return (
-    <main id="coin-details-age">
+    <main id="coin-details-page">
       <section className="primary">
         <CoinDetailsDataWrapper
           coinId={id}

@@ -1,6 +1,7 @@
 "use client";
 
 import CandlestickChart from "./CandlestickChart";
+import CoinHeader from "./CoinHeader";
 import DataTable from "./DataTable";
 import { Separator } from "./ui/separator";
 
@@ -10,27 +11,25 @@ const CoinDetailsDataWrapper = ({
   coin,
   coinOHLCData,
 }: CoinDetailsDataProps) => {
-  const tradeColumns; //ToDo
-
   return (
     <section id="coin-data-wrapper">
-      <p>Coin Header</p>
+      <CoinHeader
+        name={coin.name}
+        image={coin.image.large}
+        price={coin.market_data.current_price.usd}
+        priceChangePercentage24h={
+          coin.market_data.price_change_percentage_24h_in_currency.usd
+        }
+        priceChangePercentage30d={
+          coin.market_data.price_change_percentage_30d_in_currency.usd
+        }
+        priceChange24h={coin.market_data.price_change_24h_in_currency.usd}
+      />
       <Separator className="divider" />
       <div className="trend">
         <CandlestickChart coinId={coinId} data={coinOHLCData} />
         <h4>Trend Overview</h4>
         <Separator className="divider" />
-        {tradeColumns && (
-          <div className="trades">
-            <h4>Past 24 Hour Trades</h4>
-            <DataTable
-              columns={tradeColumns}
-              data={trades}
-              rowKey={(_, index) => index}
-              tableClassName="trades-table"
-            />
-          </div>
-        )}
       </div>
     </section>
   );

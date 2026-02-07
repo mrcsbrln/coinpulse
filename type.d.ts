@@ -236,11 +236,11 @@ interface CoinDetailsDataProps {
   children?: React.ReactNode;
 }
 
-interface LiveCoinHeaderProps {
+interface CoinHeaderProps {
   name: string;
   image: string;
-  livePrice?: number;
-  livePriceChangePercentage24h: number;
+  price: number;
+  priceChangePercentage24h: number;
   priceChangePercentage30d: number;
   priceChange24h: number;
 }
