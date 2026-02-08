@@ -82,7 +82,7 @@ const Page = async ({ params }: NextPageProps) => {
               <li key={index}>
                 <p className={label}>{label}</p>
                 {link ? (
-                  <div className={link}>
+                  <div className="link">
                     <Link href={link} target="_blank">
                       {linkText || label}
                     </Link>
