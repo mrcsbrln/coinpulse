@@ -41,3 +41,10 @@ export async function fetcher<T>(
 
   return response.json();
 }
+
+export async function searchCoins(query: string): Promise<SearchCoin[]> {
+  const data = await fetcher<{ coins: SearchCoin[] }>("/search", {
+    query,
+  });
+  return data.coins;
+}

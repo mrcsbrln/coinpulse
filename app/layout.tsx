@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { fetcher } from "@/lib/coingecko.actions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,17 +20,21 @@ export const metadata: Metadata = {
     "Crypto screener app with a buildt-in high-frequency terminal & dashboard",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { coins: trendingCoins } = await fetcher<{
+    coins: TrendingCoin[];
+  }>("/search/trending");
+
   return (
     <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
+        <Header trendingCoins={trendingCoins} />
         {children}
       </body>
     </html>

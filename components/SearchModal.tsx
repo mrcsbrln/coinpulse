@@ -27,7 +27,7 @@ const SearchItem = ({ coin, onSelect, isActiveName }: SearchItemProps) => {
 
   const change = isSearchCoin
     ? ((coin as SearchCoin).data?.price_change_percentage_24h ?? 0)
-    : ((coin as TrendingCoin["item"]).data.price_change_percentage_24h?.usd ??
+    : ((coin as TrendingCoin["item"]).data?.price_change_percentage_24h?.usd ??
       0);
 
   return (
@@ -94,9 +94,9 @@ export const SearchModal = ({
   );
 
   useKey(
-    (event) =>
+    (event: KeyboardEvent) =>
       event.key?.toLowerCase() === "k" && (event.metaKey || event.ctrlKey),
-    (event) => {
+    (event: KeyboardEvent) => {
       event.preventDefault();
       setOpen((prev) => !prev);
     },
