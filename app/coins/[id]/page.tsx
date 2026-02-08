@@ -10,7 +10,7 @@ const Page = async ({ params }: NextPageProps) => {
 
   const [coinData, coinOHLCData] = await Promise.all([
     fetcher<CoinDetailsData>(`/coins/${id}`),
-    fetcher<OHLCData>(`/coins/${id}/ohlc`, {
+    fetcher<OHLCData[]>(`/coins/${id}/ohlc`, {
       vs_currency: "usd",
       days: 1,
       precision: "full",
@@ -95,7 +95,6 @@ const Page = async ({ params }: NextPageProps) => {
             ))}
           </ul>
         </div>
-        <p>Top Gainers and Losers</p>
       </section>
     </main>
   );

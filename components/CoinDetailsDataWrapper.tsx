@@ -28,8 +28,6 @@ const CoinDetailsDataWrapper = ({
       <Separator className="divider" />
       <div className="trend">
         <CandlestickChart coinId={coinId} data={coinOHLCData} />
-        <h4>Trend Overview</h4>
-        <Separator className="divider" />
       </div>
     </section>
   );
