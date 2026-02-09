@@ -203,6 +203,10 @@
     }
   }
 
+  footer {
+    @apply border-t border-dark-400 h-20;
+  }
+
   #candlestick-chart {
     @apply p-3 mt-5 rounded-lg bg-dark-500;
 
