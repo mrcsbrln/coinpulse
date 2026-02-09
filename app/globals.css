@@ -175,6 +175,10 @@
     @apply bg-dark-400/60;
   }
 
+  .legal-page {
+    @apply mx-auto px-4 sm:px-6 max-w-360 w-full py-12;
+  }
+
   header {
     @apply border-b border-dark-400 h-20;
 
@@ -205,6 +209,17 @@
 
   footer {
     @apply border-t border-dark-400 h-20;
+
+    .inner {
+      @apply flex items-center mx-auto px-4 sm:px-6 max-w-360 w-full h-full;
+
+      nav {
+        @apply flex gap-6 items-center justify-center w-full;
+        a {
+          @apply text-purple-100 hover:text-white transition-all text-sm font-medium;
+        }
+      }
+    }
   }
 
   #candlestick-chart {
