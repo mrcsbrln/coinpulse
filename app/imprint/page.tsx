@@ -8,7 +8,7 @@ const page = () => {
         <p>Marcus Hartmann</p>
         <p>Liegnitzer Str. 16</p>
         <p>10999 Berlin</p>
-        <Link href="mailto:info@marcus-hartmann.net" className="mt-24">
+        <Link href="mailto:info@marcus-hartmann.net">
           info@marcus-hartmann.net
         </Link>
         <p>

@@ -176,7 +176,35 @@
   }
 
   .legal-page {
-    @apply mx-auto px-4 sm:px-6 max-w-360 w-full py-12;
+    @apply mx-auto px-4 sm:px-6 max-w-240 w-full py-12;
+
+    .content {
+      @apply space-y-5;
+
+      h1 {
+        @apply text-2xl md:text-3xl font-bold mb-2;
+      }
+
+      h2 {
+        @apply text-lg md:text-xl font-semibold mt-8;
+      }
+
+      p {
+        @apply text-purple-100 leading-relaxed;
+      }
+
+      ul {
+        @apply list-disc pl-6 space-y-3;
+
+        li {
+          @apply text-purple-100 leading-relaxed;
+        }
+      }
+
+      a {
+        @apply text-green-500 hover:text-green-300 transition-all underline underline-offset-2;
+      }
+    }
   }
 
   header {
